@@ -75,7 +75,7 @@ const Nav = () => {
 					</div>
 					<div className='chart'>
 						<span className='hidden'>예약확인</span>
-						<NavLink className='nav-link-off' to='/appointmentcheck'>
+						<NavLink className='nav-link-off' to='/market'>
 							<AiOutlineFileDone />
 						</NavLink>
 					</div>

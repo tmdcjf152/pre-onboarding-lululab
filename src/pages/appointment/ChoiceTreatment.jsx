@@ -5,8 +5,9 @@ import { FaRegHospital } from 'react-icons/fa';
 import { RiSyringeLine } from 'react-icons/ri';
 import { GiHealing } from 'react-icons/gi';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
-
+import { NavLink, useParams } from 'react-router-dom';
+import OverlapPage from './OverlapPage';
+OverlapPage
 const ChoiceTreatmentBlock = styled.div`
 	padding: 1rem;
 	.treatment-inner-box {
@@ -55,10 +56,17 @@ const ChoiceTreatmentBlock = styled.div`
 `;
 
 const ChoiceTreatment = () => {
+const id = useParams()
+const getLocalId = localStorage.getItem("hospitalId")
+	
+
 	return (
 		<ChoiceTreatmentBlock>
 			<Backbtn />
-			<div className='treatment-inner-box'>
+			{id.id == getLocalId ? (
+				<OverlapPage/>
+			):(
+				<div className='treatment-inner-box'>
 				<div className='treatment-text-box'>
 					<div className='treatment-text'>
 						<span>어떤 진료를 원하세요?</span>
@@ -111,6 +119,8 @@ const ChoiceTreatment = () => {
 					</div>
 				</div>
 			</div>
+			)}
+		
 		</ChoiceTreatmentBlock>
 	);
 };

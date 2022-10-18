@@ -131,8 +131,8 @@ const ChoicedateBlock = styled.div`
 	}
 `;
 
-const Choicedate = () => {
-	const [hospitalData, setHospitalData] = useState([]);
+const Choicedate = ({hospitalData}) => {
+	const [timeData, setTimeData] = useState([]);
 	const [namedata, setNameData] = useState('');
 	const [startDate, setStartDate] = useState(new Date());
 	const [radioValue, setRadioValue] = useState('');
@@ -144,17 +144,17 @@ const Choicedate = () => {
 		fetch('http://127.0.0.1:4000/data/hospital.json')
 			.then((res) => res.json())
 			.then((data) => {
-				setHospitalData(data.data[url].appointment);
+				setTimeData(data.data[url].appointment);
 			});
 	}, []);
-
+console.log(hospitalData[url].id);
 	const localSave = () => {
 		localStorage.setItem('year', String(startDate.getFullYear()));
 		localStorage.setItem('month', String(startDate.getMonth()));
 		localStorage.setItem('date', String(startDate.getDate()));
 		localStorage.setItem('appointmentTime', String(radioValue));
+		localStorage.setItem('hospitalId', hospitalData[url].id);
 	};
-
 
 	return (
 		<>
@@ -196,8 +196,8 @@ const Choicedate = () => {
 					</div>
 
 					<div className='time-box'>
-						{hospitalData &&
-							hospitalData.map((time, index) => {
+						{timeData &&
+							timeData.map((time, index) => {
 								return (
 									<label className='time-btn'>
 										<input
@@ -216,7 +216,12 @@ const Choicedate = () => {
 					</div>
 
 					<div className='next-btn-box'>
-						<button disabled={disabled} className='next-btn' onClick={localSave()}>
+						<button
+							disabled={disabled}
+							className='next-btn'
+							onClick={() => {
+								localSave();
+							}}>
 							<NavLink to='/check'>예약하기</NavLink>
 						</button>
 					</div>

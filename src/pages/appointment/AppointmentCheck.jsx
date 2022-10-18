@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Backbtn from '../../component/Backbtn';
 import logo from '../../assets/images/appLogo-green.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { AiOutlineWarning } from 'react-icons/ai';
 import { green, ivory } from '../../styles/theme';
 
@@ -85,6 +85,8 @@ const AppointmentCheckBlock = styled.div`
 `;
 
 const AppointmentCheck = ({isAppointment,setIsAppointment}) => {
+
+
 	return (
 		<>
 			<AppointmentCheckBlock>
@@ -103,7 +105,9 @@ const AppointmentCheck = ({isAppointment,setIsAppointment}) => {
 					<NavLink to='/' className='warning'>블랙릭스트처리에 대해 알아보기</NavLink>
 				</div>
 				<div className='next-btn'>
-					<NavLink to='/home' onClick={()=>{setIsAppointment(!isAppointment)}}>다음</NavLink>
+					<NavLink to='/home' onClick={()=>{setIsAppointment(!isAppointment)
+								localStorage.setItem('hospitalId', hospitalData.id);
+					}}>다음</NavLink>
 				</div>
 			</AppointmentCheckBlock>
 		</>

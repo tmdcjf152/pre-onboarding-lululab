@@ -3,10 +3,10 @@ import { green, ivory } from '../../styles/theme';
 import { AiOutlineWarning } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
-const LiveBlock = styled.div`
+const MarketBlock = styled.div`
 	width: 100%;
 	height: 100vh;
-	.live-inner-box {
+	.market-inner-box {
 		position: relative;
 		display: flex;
 		justify-content: flex-start;
@@ -14,7 +14,7 @@ const LiveBlock = styled.div`
 		flex-direction: column;
 		width: 100%;
 		height: 100%;
-		.live-img-box {
+		.market-img-box {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -25,12 +25,12 @@ const LiveBlock = styled.div`
 				color: #ddd;
 			}
 		}
-		.live-text-box {
+		.market-text-box {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			width: 100%;
-			.live-text {
+			.market-text {
 				position: absolute;
 				top: 350px;
 				font-size: 2em;
@@ -38,7 +38,7 @@ const LiveBlock = styled.div`
 				color: #ddd;
 			}
 		}
-		.live-next-btn {
+		.market-next-btn {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -60,22 +60,22 @@ const LiveBlock = styled.div`
 	}
 `;
 
-const Live = () => {
+const Market = () => {
   return (
-    <LiveBlock>
-     	<div className='live-inner-box'>
-				<div className='live-img-box'>
+    <MarketBlock>
+           	<div className='market-inner-box'>
+				<div className='market-img-box'>
 					<AiOutlineWarning />
 				</div>
-				<div className='live-text-box'>
-					<span className='live-text'>서비스 준비중<br/>빠른시일내로 찾아뵙겠습니다.</span>
+				<div className='market-text-box'>
+					<span className='market-text'>서비스 준비중<br/>빠른시일내로 찾아뵙겠습니다.</span>
 				</div>
-				<div className='live-next-btn'>
+				<div className='market-next-btn'>
 					<NavLink to='/home'>확인</NavLink>
 				</div>
 			</div>
-    </LiveBlock>
+    </MarketBlock>
   );
 };
 
-export default Live;
+export default Market;

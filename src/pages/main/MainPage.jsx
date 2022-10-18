@@ -256,6 +256,12 @@ const MainPage = ({ hospitalData, setHospitalData, isLogin, isAppointment, setIs
 								className='appointment-btn'
 								onClick={() => {
 									setIsAppointment(!isAppointment);
+									localStorage.removeItem('name')
+									localStorage.removeItem('year')
+									localStorage.removeItem('month')
+									localStorage.removeItem('date')
+									localStorage.removeItem('appointmentTime')
+									localStorage.removeItem('type')
 								}}>
 								예약 취소하기
 							</button>
@@ -304,7 +310,6 @@ const MainPage = ({ hospitalData, setHospitalData, isLogin, isAppointment, setIs
 															localStorage.setItem('time', hospital.time);
 															localStorage.setItem('address', hospital.address);
 															localStorage.setItem('category', hospital.category);
-									
 														}}
 														to={`/appointment/${hospital.id}`}>
 														예약하기

@@ -10,6 +10,7 @@ import Live from './pages/live/Live';
 import Choicedate from './pages/appointment/Choicedate';
 import { useEffect, useState } from 'react';
 import HospitalList from './pages/hospital/HospitalList';
+import Market from './pages/market/Market';
 
 const App = () => {
 	const [isLogin, setIsLogin] = useState(false);
@@ -56,9 +57,10 @@ const App = () => {
 				/>
 				<Route path='/login' element={<Login isLogin={isLogin} setIsLogin={setIsLogin} isAppointment={isAppointment} />} />
 				<Route path='/appointment/:id' element={<ChoiceTreatment />} />
-				<Route path='/appointment/:id/choicedate' element={<Choicedate hospitalData={hospitalData} setHospitalData={setHospitalData} />} />
-				<Route path='/check' element={<AppointmentCheck isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
+				<Route path='/appointment/:id/choicedate' element={<Choicedate hospitalData={hospitalData} setHospitalData={setHospitalData}  />} />
+				<Route path='/check' element={<AppointmentCheck isAppointment={isAppointment} setIsAppointment={setIsAppointment}/>} />
 				<Route path='/live' element={<Live />} />
+				<Route path='/market' element={<Market />} />
 				<Route path='/hospitallist' element={<HospitalList hospitalData={hospitalData} setHospitalData={setHospitalData}  isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
 			</Routes>
 			<Nav />

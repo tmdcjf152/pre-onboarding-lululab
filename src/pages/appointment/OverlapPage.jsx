@@ -3,10 +3,10 @@ import { green, ivory } from '../../styles/theme';
 import { AiOutlineWarning } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
-const LiveBlock = styled.div`
+const OverlapPageBlock = styled.div`
 	width: 100%;
 	height: 100vh;
-	.live-inner-box {
+	.overlap-inner-box {
 		position: relative;
 		display: flex;
 		justify-content: flex-start;
@@ -14,7 +14,7 @@ const LiveBlock = styled.div`
 		flex-direction: column;
 		width: 100%;
 		height: 100%;
-		.live-img-box {
+		.overlap-img-box {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -25,20 +25,19 @@ const LiveBlock = styled.div`
 				color: #ddd;
 			}
 		}
-		.live-text-box {
+		.overlap-text-box {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			width: 100%;
-			.live-text {
+			.overlap-text {
 				position: absolute;
 				top: 350px;
 				font-size: 2em;
-        text-align: center;
 				color: #ddd;
 			}
 		}
-		.live-next-btn {
+		.overlap-next-btn {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -60,22 +59,22 @@ const LiveBlock = styled.div`
 	}
 `;
 
-const Live = () => {
-  return (
-    <LiveBlock>
-     	<div className='live-inner-box'>
-				<div className='live-img-box'>
+const OverlapPage = () => {
+	return (
+		<OverlapPageBlock>
+			<div className='overlap-inner-box'>
+				<div className='overlap-img-box'>
 					<AiOutlineWarning />
 				</div>
-				<div className='live-text-box'>
-					<span className='live-text'>서비스 준비중<br/>빠른시일내로 찾아뵙겠습니다.</span>
+				<div className='overlap-text-box'>
+					<span className='overlap-text'> 이미 예약이 완료된 병원입니다.</span>
 				</div>
-				<div className='live-next-btn'>
+				<div className='overlap-next-btn'>
 					<NavLink to='/home'>확인</NavLink>
 				</div>
 			</div>
-    </LiveBlock>
-  );
+		</OverlapPageBlock>
+	);
 };
 
-export default Live;
+export default OverlapPage;
