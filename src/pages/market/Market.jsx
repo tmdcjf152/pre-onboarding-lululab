@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 const MarketBlock = styled.div`
 	width: 100%;
 	height: 100vh;
+	background: ${ivory};
 	.market-inner-box {
 		position: relative;
 		display: flex;
@@ -21,7 +22,7 @@ const MarketBlock = styled.div`
 			width: 100%;
 			height: 30rem;
 			svg {
-				font-size: 10rem;
+				font-size: 8rem;
 				color: #ddd;
 			}
 		}
@@ -32,8 +33,8 @@ const MarketBlock = styled.div`
 			width: 100%;
 			.market-text {
 				position: absolute;
-				top: 350px;
-				font-size: 2em;
+				top: 320px;
+				font-size: 1.5em;
         text-align: center;
 				color: #ddd;
 			}
@@ -55,6 +56,11 @@ const MarketBlock = styled.div`
                 background: ${green};
 				font-size: 1.5em;
                 color: ${ivory};
+				transition: all 0.5s;
+				&:hover{
+					background: ${ivory};
+					color: ${green};
+				}
 			}
 		}
 	}

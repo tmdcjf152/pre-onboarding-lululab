@@ -37,6 +37,7 @@ const MypageBlock = styled.div`
 					font-size: 2em;
 				}
 			}
+			/* 정보/주소/카드/후기 관리 */
 			.mypage-content-box {
 				display: flex;
 				justify-content: center;
@@ -46,6 +47,7 @@ const MypageBlock = styled.div`
 				.content-text {
 					font-size: 1.1em;
 					margin-top: 1rem;
+
 				}
 				.content-img {
 					font-size: 1.5em;
@@ -55,26 +57,50 @@ const MypageBlock = styled.div`
 					flex-direction: column;
 					width: 100%;
 					text-align: center;
+					cursor: pointer;
+					transition : all 0.5s;
+					&:hover{
+						color: ${green};
+					}
 				}
 				.address {
 					display: flex;
 					flex-direction: column;
 					width: 100%;
 					text-align: center;
+					cursor: pointer;
+					transition : all 0.5s;
+
+					&:hover{
+						color: ${green};
+					}
 				}
 				.card {
 					display: flex;
 					flex-direction: column;
 					width: 100%;
 					text-align: center;
+					cursor: pointer;
+					transition : all 0.5s;
+
+					&:hover{
+						color: ${green};
+					}
 				}
 				.review {
 					display: flex;
 					flex-direction: column;
 					width: 100%;
 					text-align: center;
+					cursor: pointer;
+					transition : all 0.5s;
+
+					&:hover{
+						color: ${green};
+					}
 				}
 			}
+			/* 배너 */
 			.appointment-banner {
 				width: 90%;
 				height: 5rem;
@@ -91,6 +117,7 @@ const MypageBlock = styled.div`
                     color: ${green};
 				}
 			}
+			/* QnA */
 			.qna-box {
 				display: flex;
 				justify-content: center;
@@ -99,7 +126,6 @@ const MypageBlock = styled.div`
 				width: 100%;
 				height: 100%;
 				margin-bottom: 5rem;
-
 				.qna {
 					display: flex;
 					justify-content: space-between;
@@ -108,6 +134,11 @@ const MypageBlock = styled.div`
 					height: 4rem;
 					padding: 0rem 2rem;
 					border-bottom: 1px solid #aaa;
+					transition: all 0.3s;
+					cursor: pointer;
+					&:hover{
+						background-color: #00ff9535;
+					}
 				}
 			}
 		}
@@ -126,14 +157,18 @@ const MypageBlock = styled.div`
                 font-size: 1.2em;
                 color: ${ivory};
                 cursor: pointer;
+				transition: all 0.5s;
+				&:hover{
+					background: ${ivory};
+					color: ${green};
+				}
 			}
 		}
 	}
 `;
 
-
-const Mypage = ({isLogin, setIsLogin}) => {
-	setIsLogin(true)
+const Mypage = ({ isLogin, setIsLogin, isAppointment, setIsAppointment }) => {
+	setIsLogin(true);
 	return (
 		<MypageBlock>
 			<div className='mypage-inner-box'>
@@ -224,7 +259,9 @@ const Mypage = ({isLogin, setIsLogin}) => {
 				<div className='logout-btn-box'>
 					<button
 						onClick={() => {
-							setIsLogin(!isLogin);
+							setIsLogin(false);
+							setIsAppointment(true);
+							localStorage.clear();
 						}}>
 						로그아웃
 					</button>

@@ -1,4 +1,4 @@
-import { Link, NavLink, useParams } from 'react-router-dom';
+import { Link, NavLink, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 import { AiFillHome } from 'react-icons/ai';
 import { FaHeartbeat } from 'react-icons/fa';
@@ -6,6 +6,9 @@ import { GiTalk } from 'react-icons/gi';
 import { AiOutlineFileDone } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import { ivory } from '../styles/theme';
+import { useEffect } from 'react';
+import { green } from '../styles/theme';
+
 
 const NavBlock = styled.div`
 	position: fixed;
@@ -20,6 +23,7 @@ const NavBlock = styled.div`
 		width: 100%;
 		height: 100px;
 		background: ${ivory};
+		border-top: 1px solid #ddd;
 		.nav-btn-box {
 			display: flex;
 			flex-grow: 1;
@@ -29,7 +33,7 @@ const NavBlock = styled.div`
 				color: #aaa;
 			}
 			.nav-link-on {
-				color: #000;
+				color: ${green};
 			}
 			.home {
 				margin: 0 auto;
@@ -50,40 +54,40 @@ const NavBlock = styled.div`
 	}
 `;
 
-const Nav = ({isLogin,setIsLogin}) => {
+const Nav = () => {
+	const location =useLocation();
 
-	console.log(isLogin);
 	return (
 		<NavBlock>
 			<div className='nav-inner-box'>
 				<div className='nav-btn-box'>
 					<div className='home'>
 						<span className='hidden'>홈버튼</span>
-						<Link className='nav-link-off' to='/home'>
+						<Link className={location.pathname == '/home' ?'nav-link-on' :'nav-link-off'  } to='/home'>
 							<AiFillHome />
 						</Link>
 					</div>
 					<div className='health'>
 						<span className='hidden'>병원리스트</span>
-						<NavLink className='nav-link-off' to='/hospitallist'>
+						<NavLink className={location.pathname == '/hospitallist' ?'nav-link-on' :'nav-link-off'  } to='/hospitallist'>
 							<FaHeartbeat />
 						</NavLink>
 					</div>
 					<div className='question'>
 						<span className='hidden'>실시간 진료보기</span>
-						<NavLink className='nav-link-off' to='/live'>
+						<NavLink className={location.pathname == '/live' ?'nav-link-on' :'nav-link-off'  } to='/live'>
 							<GiTalk />
 						</NavLink>
 					</div>
 					<div className='chart'>
 						<span className='hidden'>예약확인</span>
-						<NavLink className='nav-link-off' to='/market'>
+						<NavLink className={location.pathname == '/market' ?'nav-link-on' :'nav-link-off'  } to='/market'>
 							<AiOutlineFileDone />
 						</NavLink>
 					</div>
 					<div className='mypage'>
 						<span className='hidden'>마이페이지</span>
-						<NavLink className='nav-link-off' to='/login'>
+						<NavLink className={location.pathname == '/login' ?'nav-link-on' :'nav-link-off'  } to='/login'>
 							<FaUserCircle />
 						</NavLink>
 					</div>

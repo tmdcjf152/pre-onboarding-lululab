@@ -78,7 +78,7 @@ const ChoiceTreatment = ({ isAppointment, setIsAppointment }) => {
 			console.log(blockUser);
 		}
 	})
-	console.log(block.block);
+
 
 
 	return (

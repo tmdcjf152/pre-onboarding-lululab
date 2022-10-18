@@ -29,11 +29,7 @@ const App = () => {
 
 
 
-	useEffect(() => {
-		if (sessionStorage.getItem('appoinmentTime') !== null) {
-			setIsAppointment(true);
-		}
-	}, [isAppointment]);
+
 
 
 	return (
@@ -53,7 +49,7 @@ const App = () => {
 						/>
 					}
 				/>
-				<Route path='/login' element={<Login isLogin={isLogin} setIsLogin={setIsLogin} isAppointment={isAppointment} />} />
+				<Route path='/login' element={<Login isLogin={isLogin} setIsLogin={setIsLogin} isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
 				<Route path='/appointment/:id' element={<ChoiceTreatment isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
 				<Route path='/appointment/:id/choicedate' element={<Choicedate hospitalData={hospitalData} setHospitalData={setHospitalData} />} />
 				<Route path='/check' element={<AppointmentCheck isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />

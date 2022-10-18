@@ -4,7 +4,6 @@ import { RiKakaoTalkFill } from 'react-icons/ri';
 import { SiNaver } from 'react-icons/si';
 import { AiFillApple } from 'react-icons/ai';
 import logo from '../../assets/images/appLogo-green.png';
-import Backbtn from '../../component/Backbtn';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Mypage from './Mypage';
@@ -37,7 +36,7 @@ const LoginBlock = styled.div`
 		margin-bottom: 2rem;
 		input[type='text'] {
 			width: 100%;
-			height: 5em;
+			height: 2.5em;
 			margin-bottom: 1.5rem;
 			padding: 1em;
 			border-radius: 10px;
@@ -45,7 +44,7 @@ const LoginBlock = styled.div`
 		}
 		input[type='password'] {
 			width: 100%;
-			height: 5em;
+			height: 2.5em;
 			margin-bottom: 2.5rem;
 			padding: 1em;
 			border-radius: 10px;
@@ -74,14 +73,19 @@ const LoginBlock = styled.div`
 		align-items: center;
 		width: 100%;
 		margin-bottom: 4rem;
+
 		.search-id {
 			margin-right: 1rem;
+			transition: all 0.5s;
+			cursor: pointer;
 			&:hover {
 				color: ${green};
 			}
 		}
 		.search-pwd {
 			margin-left: 1rem;
+			transition: all 0.5s;
+			cursor: pointer;
 			&:hover {
 				color: ${green};
 			}
@@ -93,7 +97,7 @@ const LoginBlock = styled.div`
 		align-items: center;
 		flex-direction: row;
 		width: 70%;
-		margin-bottom: 100px;
+
 		svg {
 			font-size: 2.5em;
 		}
@@ -101,10 +105,11 @@ const LoginBlock = styled.div`
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			width: 70px;
-			height: 70px;
+			width: 60px;
+			height: 60px;
 			border-radius: 50%;
 			background: #f8f811;
+			cursor: pointer;
 			svg {
 				color: #423131;
 			}
@@ -113,10 +118,11 @@ const LoginBlock = styled.div`
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			width: 70px;
-			height: 70px;
+			width: 60px;
+			height: 60px;
 			border-radius: 50%;
 			background: #20c320;
+			cursor: pointer;
 			svg {
 				font-size: 2em;
 				color: #fff;
@@ -126,10 +132,11 @@ const LoginBlock = styled.div`
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			width: 70px;
-			height: 70px;
+			width: 60px;
+			height: 60px;
 			border-radius: 50%;
 			background: #000000;
+			cursor: pointer;
 			svg {
 				color: #fff;
 			}
@@ -137,13 +144,13 @@ const LoginBlock = styled.div`
 	}
 `;
 
-const Login = ({isLogin, setIsLogin}) => {
-	const [inputId,setInputId] = useState('')
-	const [inputPwd,setInputPwd] = useState('')
-	const loginInfo = ()=>{
-		localStorage.setItem("id", inputId)
-		setIsLogin(true)
-	}
+const Login = ({ isLogin, setIsLogin, isAppointment, setIsAppointment }) => {
+	const [inputId, setInputId] = useState('');
+	const [inputPwd, setInputPwd] = useState('');
+	const loginInfo = () => {
+		localStorage.setItem('id', inputId);
+		setIsLogin(true);
+	};
 
 	useEffect(() => {
 		if (localStorage.getItem('id') !== null) {
@@ -152,51 +159,63 @@ const Login = ({isLogin, setIsLogin}) => {
 	}, []);
 
 	return (
-		
 		<LoginBlock>
 			{isLogin == true ? (
-				<Mypage isLogin={isLogin} setIsLogin={setIsLogin} />
-			):(
+				<Mypage isLogin={isLogin} setIsLogin={setIsLogin}isAppointment={isAppointment} setIsAppointment={setIsAppointment} />
+			) : (
 				<>
-				<Backbtn />
-				<div className='logo-inner-box'>
-					<img src={logo} alt='룰루랩 로고사진' />
-				</div>
-				<div className='input-inner-box'>
-					<input type='text' placeholder='이름' onChange={(e)=>{setInputId(e.target.value)}}></input>
-					<input type='password' placeholder='비밀번호' onChange={(e)=>{setInputPwd(e.target.value)}}></input>
-				</div>
-				<div className='login-btn-box'>
-					<NavLink to='/home' className='login-btn' onClick={()=>{loginInfo()}}>로그인</NavLink>
-				</div>
-				<div className='search-user-box'>
-					<span className='search-id'>아이디 찾기</span>|<span className='search-pwd'>비밀번호 찾기</span>
-				</div>
-				<div className='sns-inner-box'>
-					<div className='kakao-login-box'>
-						<span className='hidden'>카카오로 로그인하기</span>
-						<span>
-							<RiKakaoTalkFill />
-						</span>
+					<div className='logo-inner-box'>
+						<img src={logo} alt='룰루랩 로고사진' />
 					</div>
-					<div className='naver-login-box'>
-						<span className='hidden'>네이버로 로그인하기</span>
-						<span>
-							<SiNaver />
-						</span>
+					<div className='input-inner-box'>
+						<input
+							type='text'
+							placeholder='이름'
+							onChange={(e) => {
+								setInputId(e.target.value);
+							}}></input>
+						<input
+							type='password'
+							placeholder='비밀번호'
+							onChange={(e) => {
+								setInputPwd(e.target.value);
+							}}></input>
 					</div>
-					<div className='apple-login-box'>
-						<span className='hidden'>애플로 로그인하기</span>
-						<span>
-							<AiFillApple />
-						</span>
+					<div className='login-btn-box'>
+						<NavLink
+							to='/home'
+							className='login-btn'
+							onClick={() => {
+								loginInfo();
+							}}>
+							로그인
+						</NavLink>
 					</div>
-				</div>
+					<div className='search-user-box'>
+						<span className='search-id'>아이디 찾기</span>|<span className='search-pwd'>비밀번호 찾기</span>
+					</div>
+					<div className='sns-inner-box'>
+						<div className='kakao-login-box'>
+							<span className='hidden'>카카오로 로그인하기</span>
+							<span>
+								<RiKakaoTalkFill />
+							</span>
+						</div>
+						<div className='naver-login-box'>
+							<span className='hidden'>네이버로 로그인하기</span>
+							<span>
+								<SiNaver />
+							</span>
+						</div>
+						<div className='apple-login-box'>
+							<span className='hidden'>애플로 로그인하기</span>
+							<span>
+								<AiFillApple />
+							</span>
+						</div>
+					</div>
 				</>
-			)
-			
-			}
-			
+			)}
 		</LoginBlock>
 	);
 };
