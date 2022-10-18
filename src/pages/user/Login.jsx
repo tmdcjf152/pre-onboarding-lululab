@@ -5,7 +5,7 @@ import { SiNaver } from 'react-icons/si';
 import { AiFillApple } from 'react-icons/ai';
 import logo from '../../assets/images/appLogo-green.png';
 import Backbtn from '../../component/Backbtn';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Mypage from './Mypage';
 
@@ -142,14 +142,21 @@ const Login = ({isLogin, setIsLogin}) => {
 	const [inputPwd,setInputPwd] = useState('')
 	const loginInfo = ()=>{
 		localStorage.setItem("id", inputId)
-		setIsLogin(!isLogin)
+		setIsLogin(true)
 	}
 
+	useEffect(() => {
+		if (localStorage.getItem('id') !== null) {
+			setIsLogin(true);
+		}
+	}, []);
 
 	return (
 		
 		<LoginBlock>
-			{isLogin ? (
+			{isLogin == true ? (
+				<Mypage isLogin={isLogin} setIsLogin={setIsLogin} />
+			):(
 				<>
 				<Backbtn />
 				<div className='logo-inner-box'>
@@ -186,8 +193,6 @@ const Login = ({isLogin, setIsLogin}) => {
 					</div>
 				</div>
 				</>
-			):(
-				<Mypage isLogin={isLogin} setIsLogin={setIsLogin} />
 			)
 			
 			}

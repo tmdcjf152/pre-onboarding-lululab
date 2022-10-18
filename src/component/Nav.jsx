@@ -50,7 +50,9 @@ const NavBlock = styled.div`
 	}
 `;
 
-const Nav = () => {
+const Nav = ({isLogin,setIsLogin}) => {
+
+	console.log(isLogin);
 	return (
 		<NavBlock>
 			<div className='nav-inner-box'>

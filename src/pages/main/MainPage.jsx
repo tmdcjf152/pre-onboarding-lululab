@@ -221,7 +221,7 @@ const MainPage = ({ hospitalData, setHospitalData, isLogin, isAppointment, setIs
 			<div className='main-inner-box'>
 				<div className='main-header-box center'>
 					<span>빠른 진료를 원하시나요?</span>
-					<NavLink to='/hospitallist'>예약 시작하기</NavLink>
+					<NavLink to={isLogin == true ? '/login' : '/hospitallist'}>예약 시작하기</NavLink>
 				</div>
 				<div className='main-appointment-box center'>
 					<span className='appointment-title'>예약현황</span>
@@ -250,7 +250,7 @@ const MainPage = ({ hospitalData, setHospitalData, isLogin, isAppointment, setIs
 						{isAppointment ? (
 							<NavLink onClick={() => {
 								setIsAppointment(!isAppointment);
-							}} to='/hospitallist' className='appointment-btn'>진료 예약하기</NavLink>
+							}} to={isLogin == true ? '/login' : '/hospitallist'} className='appointment-btn'>진료 예약하기</NavLink>
 						) : (
 							<button
 								className='appointment-btn'
@@ -262,6 +262,7 @@ const MainPage = ({ hospitalData, setHospitalData, isLogin, isAppointment, setIs
 									localStorage.removeItem('date')
 									localStorage.removeItem('appointmentTime')
 									localStorage.removeItem('type')
+									localStorage.removeItem('hospitalId')
 								}}>
 								예약 취소하기
 							</button>
@@ -311,7 +312,7 @@ const MainPage = ({ hospitalData, setHospitalData, isLogin, isAppointment, setIs
 															localStorage.setItem('address', hospital.address);
 															localStorage.setItem('category', hospital.category);
 														}}
-														to={`/appointment/${hospital.id}`}>
+														to={isLogin == true ? '/login' :`/appointment/${hospital.id}`}>
 														예약하기
 													</NavLink>
 												</div>

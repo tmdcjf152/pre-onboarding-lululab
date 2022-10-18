@@ -147,7 +147,7 @@ const Choicedate = ({hospitalData}) => {
 				setTimeData(data.data[url].appointment);
 			});
 	}, []);
-console.log(hospitalData[url].id);
+
 	const localSave = () => {
 		localStorage.setItem('year', String(startDate.getFullYear()));
 		localStorage.setItem('month', String(startDate.getMonth()));

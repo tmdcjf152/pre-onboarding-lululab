@@ -13,8 +13,8 @@ import HospitalList from './pages/hospital/HospitalList';
 import Market from './pages/market/Market';
 
 const App = () => {
-	const [isLogin, setIsLogin] = useState(false);
-	const [isAppointment, setIsAppointment] = useState(false);
+	const [isLogin, setIsLogin] = useState(true);
+	const [isAppointment, setIsAppointment] = useState(true);
 	const [hospitalData, setHospitalData] = useState([]);
 
 	const id = useParams();
@@ -27,16 +27,14 @@ const App = () => {
 			});
 	}, []);
 
-	useEffect(() => {
-		if (sessionStorage.getItem('id') !== null) {
-			setIsLogin(true);
-		}
-	}, []);
+
+
 	useEffect(() => {
 		if (sessionStorage.getItem('appoinmentTime') !== null) {
 			setIsAppointment(true);
 		}
 	}, [isAppointment]);
+
 
 	return (
 		<>
@@ -56,14 +54,19 @@ const App = () => {
 					}
 				/>
 				<Route path='/login' element={<Login isLogin={isLogin} setIsLogin={setIsLogin} isAppointment={isAppointment} />} />
-				<Route path='/appointment/:id' element={<ChoiceTreatment />} />
-				<Route path='/appointment/:id/choicedate' element={<Choicedate hospitalData={hospitalData} setHospitalData={setHospitalData}  />} />
-				<Route path='/check' element={<AppointmentCheck isAppointment={isAppointment} setIsAppointment={setIsAppointment}/>} />
+				<Route path='/appointment/:id' element={<ChoiceTreatment isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
+				<Route path='/appointment/:id/choicedate' element={<Choicedate hospitalData={hospitalData} setHospitalData={setHospitalData} />} />
+				<Route path='/check' element={<AppointmentCheck isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
 				<Route path='/live' element={<Live />} />
 				<Route path='/market' element={<Market />} />
-				<Route path='/hospitallist' element={<HospitalList hospitalData={hospitalData} setHospitalData={setHospitalData}  isAppointment={isAppointment} setIsAppointment={setIsAppointment} />} />
+				<Route
+					path='/hospitallist'
+					element={
+						<HospitalList hospitalData={hospitalData} setHospitalData={setHospitalData} isAppointment={isAppointment} setIsAppointment={setIsAppointment} />
+					}
+				/>
 			</Routes>
-			<Nav />
+			<Nav  isLogin={isLogin} setIsLogin={setIsLogin} />
 		</>
 	);
 };

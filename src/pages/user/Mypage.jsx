@@ -131,7 +131,9 @@ const MypageBlock = styled.div`
 	}
 `;
 
+
 const Mypage = ({isLogin, setIsLogin}) => {
+	setIsLogin(true)
 	return (
 		<MypageBlock>
 			<div className='mypage-inner-box'>
