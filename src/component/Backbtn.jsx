@@ -39,6 +39,7 @@ const Backbtn = ({setIsAppointment }) => {
 					to='/home'
 					className='back-btn'
 					onClick={() => {
+						localReset()
 						setIsAppointment(true)
 					}}>
 					<span className='hidden'>뒤로가기</span>
