@@ -90,7 +90,8 @@ npm run dev
 # 주요기능 및 설명
 
 ## ✅ 전체적인 UI 모습
-![전체적인UI](https://user-images.githubusercontent.com/87900492/196642891-b7088413-1ea2-4684-81ee-67fab1c84fc7.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642891-b7088413-1ea2-4684-81ee-67fab1c84fc7.gif" width="400" height="500"/>
+
 ```
 병원예약시스템을 만들면서 웹으로 UI/UX를 구상해야할지 모바일 느낌으로 구상해야할지 고민을 하면서 
 요즘은 웹으로 예약하기 보단 모바일을 더 선호한다는 생각으로 모바일에 맞는 UI로 제작하였습니다.
@@ -101,7 +102,8 @@ npm run dev
 <br/>
 
 ## ✅ 반응형
-![반응형](https://user-images.githubusercontent.com/87900492/196654562-f6af087b-4b17-4633-9c58-ff4536a5b906.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196654562-f6af087b-4b17-4633-9c58-ff4536a5b906.gif" width="400" height="500"/>
+
 ```
 테블릿 및 모바일에 좀더 최적화된 화면이지만 웹에서 접근하더라도 이상없이 예약시스템을 이용할 수 있도록
 반응형 작업을 하였습니다.
@@ -111,7 +113,8 @@ npm run dev
 <br/>
 
 ## ✅ 로그인 유무에 따른 예약 유효성검사
-![예약유효성검사](https://user-images.githubusercontent.com/87900492/196642885-45ce0c7a-2219-46cb-b3b3-76948f484cce.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642885-45ce0c7a-2219-46cb-b3b3-76948f484cce.gif" width="400" height="500"/>
+
 ```
 로그인 정보가 있으면 예약이 가능한 페이지로 이동시켜주고 
 만약 로그인정보가 없다면 로그인페이지로 이동시켜주는 로직으로 구성하였습니다.
@@ -120,7 +123,8 @@ npm run dev
 <br/>
 
 ## ✅ 로그인 기능
-![로그인:로그아웃](https://user-images.githubusercontent.com/87900492/196642853-29530f5f-6dcb-41d7-b815-c0f903a50abe.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642853-29530f5f-6dcb-41d7-b815-c0f903a50abe.gif" width="400" height="500"/>
+
 ```
 input값으로 이름을 받으면 그 이름을 sectionStorage에 저장하고
 그이름을 Token처럼 이용하여 로그인 기능을 구현하였습니다.
@@ -131,7 +135,8 @@ input값으로 이름을 받으면 그 이름을 sectionStorage에 저장하고
 <br/>
 
 ## ✅ 병원예약기능
-![예약기능](https://user-images.githubusercontent.com/87900492/196642870-9e7a8502-128b-49e1-82eb-3cc64c520f43.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642870-9e7a8502-128b-49e1-82eb-3cc64c520f43.gif" width="400" height="500"/>
+
 ```
 예약하기 버튼을 클릭시 예약이 가능한 병원 리스트가 뜨며 예약하기 버튼을 클릭시 손쉽게 예약을 할 수 있습니다.
 ```
@@ -140,7 +145,8 @@ input값으로 이름을 받으면 그 이름을 sectionStorage에 저장하고
 <br/>
 
 ## ✅ 중복예약 방지기능
-![중복예약방지](https://user-images.githubusercontent.com/87900492/196642893-ba4cff3c-cb72-4b98-a916-aeef0c395197.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642893-ba4cff3c-cb72-4b98-a916-aeef0c395197.gif" width="400" height="500"/>
+
 ```
 만약 현재 예약된 병원을 다시 예약하게 된다면 "이미 예약이 완료된 병원입니다" 라는 문구를 출력하고 홈으로 이동합니다.
 ```
@@ -148,7 +154,8 @@ input값으로 이름을 받으면 그 이름을 sectionStorage에 저장하고
 <br/>
 
 ## ✅ 예약취소 기능
-![예약취소](https://user-images.githubusercontent.com/87900492/196642888-8d05a571-e63f-4cd1-9a54-e29b8dbbbc29.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642888-8d05a571-e63f-4cd1-9a54-e29b8dbbbc29.gif" width="400" height="500"/>
+
 ```
 메인화면에 예약 취소하기 버튼을 클릭시 예약정보가 삭제되고 중복예약으로 예약이 불가능했던 병원도 예약이 가능해집니다.
 ```
@@ -156,7 +163,8 @@ input값으로 이름을 받으면 그 이름을 sectionStorage에 저장하고
 <br/>
 
 ## ✅ 노쇼고객 예약불가 기능
-![블랙리스트](https://user-images.githubusercontent.com/87900492/196642863-94cbca66-9275-4a8a-9fc1-877bc9428350.gif)
+<img src="https://user-images.githubusercontent.com/87900492/196642863-94cbca66-9275-4a8a-9fc1-877bc9428350.gif" width="400" height="500"/>
+
 ```
 병원에서 해당 고객을 블랙리스트 처리하는 시스템처럼 구현을 하였으며
 목데이터 안에 블랙리스트 처리를 한것처럼 block: 을 true/false로 값을 저장해 주었습니다.
@@ -167,7 +175,9 @@ input값으로 이름을 받으면 그 이름을 sectionStorage에 저장하고
 <br/>
 
 ## ✅ 로그아웃 기능
-![로그아웃](https://user-images.githubusercontent.com/87900492/196645582-5dbcd8d4-55d9-463c-b7e5-53bb1a0854c4.gif)
+
+<img src="https://user-images.githubusercontent.com/87900492/196645582-5dbcd8d4-55d9-463c-b7e5-53bb1a0854c4.gif" width="400" height="500"/>
+
 ```
 마이페이지에서 로그아웃 버튼을 클릭시 로그아웃이 되고 사용자 정보가 제거됩니다.
 ```
