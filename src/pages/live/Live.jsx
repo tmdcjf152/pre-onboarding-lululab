@@ -69,7 +69,7 @@ const LiveBlock = styled.div`
 const Live = () => {
   return (
     <LiveBlock>
-     	<div className='live-inner-box'>
+     	<div className='live-inner-box fade-in'>
 				<div className='live-img-box'>
 					<AiOutlineWarning />
 				</div>

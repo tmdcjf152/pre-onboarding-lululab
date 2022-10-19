@@ -69,7 +69,7 @@ const MarketBlock = styled.div`
 const Market = () => {
   return (
     <MarketBlock>
-           	<div className='market-inner-box'>
+           	<div className='market-inner-box fade-in'>
 				<div className='market-img-box'>
 					<AiOutlineWarning />
 				</div>

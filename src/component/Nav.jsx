@@ -21,14 +21,14 @@ const NavBlock = styled.div`
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		height: 100px;
+		height: 80px;
 		background: ${ivory};
 		border-top: 1px solid #ddd;
 		.nav-btn-box {
 			display: flex;
 			flex-grow: 1;
 			width: 100%;
-			font-size: 2.5em;
+			font-size: 2.2em;
 			.nav-link-off {
 				color: #aaa;
 			}
@@ -52,13 +52,23 @@ const NavBlock = styled.div`
 			}
 		}
 	}
+
+		/* ======================== 반응형 460px ======================== */
+		@media screen and (max-width: 460px) {
+	.nav-inner-box {
+		height: 70px;
+		.nav-btn-box {
+			font-size: 2em;
+		}
+	}
+	}
 `;
 
 const Nav = () => {
 	const location =useLocation();
 
 	return (
-		<NavBlock>
+		<NavBlock className='fade-in'>
 			<div className='nav-inner-box'>
 				<div className='nav-btn-box'>
 					<div className='home'>

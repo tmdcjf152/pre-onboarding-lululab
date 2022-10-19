@@ -62,7 +62,7 @@ const OverlapPageBlock = styled.div`
 const OverlapPage = () => {
 	return (
 		<OverlapPageBlock>
-			<div className='overlap-inner-box'>
+			<div className='overlap-inner-box fade-in'>
 				<div className='overlap-img-box'>
 					<AiOutlineWarning />
 				</div>

@@ -8,12 +8,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+
 const MainPageBlock = styled.div`
-	.center {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -250,9 +246,119 @@ const MainPageBlock = styled.div`
 			}
 		}
 	}
+
+	/* ======================== 반응형 460px ======================== */
+	@media screen and (max-width: 460px) {
+		.main-inner-box {
+			.main-header-box {
+				height: 7rem;
+				font-size: 1.5em;
+				span {
+					margin-bottom: 0.5rem;
+				}
+			}
+			.main-appointment-box {
+				flex-direction: column;
+				width: 100%;
+				height: 30rem;
+				/* 예약현황 */
+				.appointment-title {
+					font-size: 1.5em;
+				}
+				/* 예약현황 박스 */
+				.appointment-content {
+					width: 90%;
+					/* 유저이름 */
+					.user-name {
+						font-size: 1em;
+						margin-bottom: 1rem;
+					}
+					/*요청중인 예약이 없습니다. */
+					.appointment-content-title {
+						font-size: 1.2em;
+						color: #aaa;
+						margin-bottom: 1em;
+					}
+					/* 대기시간을 줄여주는... */
+					.appointment-content-text {
+						font-size: 1em;
+						text-align: center;
+						line-height: 1.5em;
+					}
+					/* 병원이름 */
+					.appointment-hospital-name {
+						font-size: 1em;
+						margin-bottom: 1rem;
+					}
+					/* 예약날짜 */
+					.appointment-date {
+						font-size: 1em;
+						margin-bottom: 1rem;
+					}
+					/* 예약종류 */
+					.appointment-type {
+						font-size: 1em;
+						margin-bottom: 1rem;
+					}
+					/* 주의사항 */
+					.warning {
+						font-size: 0.8em;
+						color: #aaa;
+					}
+				}
+				/* 예약버튼 박스 */
+				.appointment-btn-box {
+					height: 4rem;
+					padding: 0rem 3rem;
+					margin-bottom: 5rem;
+					/* 예약버튼 */
+					.appointment-btn {
+						font-size: 1em;
+					}
+				}
+			}
+			/* 바로예약 병원 박스 */
+			.list-inner-box {
+				/* 바로예약병원 / 모두보기 박스 */
+				.list-header-box {
+					/* 모두보기 */
+					.more-btn {
+						font-size: 0.9em;
+					}
+				}
+				.hospital-list-box {
+					width: 100%;
+					height: 100%;
+					.hospital-box {
+						display: flex;
+						justify-content: flex-start;
+						align-items: flex-start;
+						flex-direction: column;
+						width: 100%;
+						height: 100%;
+						padding: 1rem;
+						border: 1px solid #ddd;
+						border-radius: 20px;
+						.title {
+							font-size: 1.2em;
+						}
+						.time {
+							font-size: 1em;
+						}
+						.address {
+							font-size: 1em;
+						}
+						.category {
+							font-size: 1em;
+						}
+					}
+				}
+			}
+		}
+	}
 `;
 
-const MainPage = ({ hospitalData, isLogin, isAppointment, setIsAppointment }) => {
+const MainPage = ({ hospitalData, isLogin, setIsLogin, isAppointment, setIsAppointment }) => {
 	// 로컬스토리지 삭제 함수
 	const localReset = () => {
 		localStorage.removeItem('name');
@@ -276,8 +382,9 @@ const MainPage = ({ hospitalData, isLogin, isAppointment, setIsAppointment }) =>
 	});
 
 	return (
+		
 		<MainPageBlock>
-			<div className='main-inner-box'>
+			<div className='main-inner-box fade-in'>
 				<div className='main-header-box center'>
 					<span>빠른 진료를 원하시나요?</span>
 					<NavLink to={isLogin == true ? '/hospitallist' : '/login'}>예약 시작하기</NavLink>

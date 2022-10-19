@@ -13,7 +13,7 @@ import HospitalList from './pages/hospital/HospitalList';
 import Market from './pages/market/Market';
 
 const App = () => {
-	const [isLogin, setIsLogin] = useState(true);
+	const [isLogin, setIsLogin] = useState(false)
 	const [isAppointment, setIsAppointment] = useState(true);
 	const [hospitalData, setHospitalData] = useState([]);
 
@@ -27,11 +27,6 @@ const App = () => {
 			});
 	}, []);
 
-
-
-
-
-
 	return (
 		<>
 			<GlobalStyle />
@@ -44,6 +39,7 @@ const App = () => {
 							hospitalData={hospitalData}
 							setHospitalData={setHospitalData}
 							isLogin={isLogin}
+							setIsLogin={setIsLogin}
 							isAppointment={isAppointment}
 							setIsAppointment={setIsAppointment}
 						/>
@@ -58,7 +54,7 @@ const App = () => {
 				<Route
 					path='/hospitallist'
 					element={
-						<HospitalList hospitalData={hospitalData} setHospitalData={setHospitalData} isAppointment={isAppointment} setIsAppointment={setIsAppointment} />
+						<HospitalList hospitalData={hospitalData} setHospitalData={setHospitalData} isAppointment={isAppointment} setIsAppointment={setIsAppointment} isLogin={isLogin} />
 					}
 				/>
 			</Routes>

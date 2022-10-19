@@ -142,6 +142,57 @@ const LoginBlock = styled.div`
 			}
 		}
 	}
+
+	/* ======================== 반응형 460px ======================== */
+	@media screen and (max-width: 460px) {
+		padding-bottom: 200px;
+		.logo-inner-box {
+			height: 15em;
+		}
+		.input-inner-box {
+			width: 70%;
+			height: 5em;
+			margin-bottom: 2rem;
+			input[type='text'] {
+				height: 2em;
+			}
+			input[type='password'] {
+				height: 2em;
+			}
+		}
+		.login-btn-box {
+
+			.login-btn {
+				height: 2.5em;
+			}
+		}
+
+		.sns-inner-box {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-direction: row;
+			width: 70%;
+			svg {
+				font-size: 1.5em;
+			}
+			.kakao-login-box {
+				width: 50px;
+				height: 50px;
+			}
+			.naver-login-box {
+				width: 50px;
+				height: 50px;
+				svg {
+					font-size: 1em;
+				}
+			}
+			.apple-login-box {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
 `;
 
 const Login = ({ isLogin, setIsLogin, isAppointment, setIsAppointment }) => {
@@ -156,12 +207,12 @@ const Login = ({ isLogin, setIsLogin, isAppointment, setIsAppointment }) => {
 		if (localStorage.getItem('id') !== null) {
 			setIsLogin(true);
 		}
-	}, []);
+	});
 
 	return (
-		<LoginBlock>
+		<LoginBlock className='fade-in'>
 			{isLogin == true ? (
-				<Mypage isLogin={isLogin} setIsLogin={setIsLogin}isAppointment={isAppointment} setIsAppointment={setIsAppointment} />
+				<Mypage isLogin={isLogin} setIsLogin={setIsLogin} isAppointment={isAppointment} setIsAppointment={setIsAppointment} />
 			) : (
 				<>
 					<div className='logo-inner-box'>

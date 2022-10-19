@@ -6,7 +6,8 @@ import { AiFillCreditCard } from 'react-icons/ai';
 import { BsPencil } from 'react-icons/bs';
 import { GrNext } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
-
+import { useState } from 'react';
+import StartsPage from '../main/StartPage';
 const MypageBlock = styled.div`
 	display: flex;
 	justify-content: center;
@@ -47,7 +48,6 @@ const MypageBlock = styled.div`
 				.content-text {
 					font-size: 1.1em;
 					margin-top: 1rem;
-
 				}
 				.content-img {
 					font-size: 1.5em;
@@ -58,8 +58,8 @@ const MypageBlock = styled.div`
 					width: 100%;
 					text-align: center;
 					cursor: pointer;
-					transition : all 0.5s;
-					&:hover{
+					transition: all 0.5s;
+					&:hover {
 						color: ${green};
 					}
 				}
@@ -69,9 +69,9 @@ const MypageBlock = styled.div`
 					width: 100%;
 					text-align: center;
 					cursor: pointer;
-					transition : all 0.5s;
+					transition: all 0.5s;
 
-					&:hover{
+					&:hover {
 						color: ${green};
 					}
 				}
@@ -81,9 +81,9 @@ const MypageBlock = styled.div`
 					width: 100%;
 					text-align: center;
 					cursor: pointer;
-					transition : all 0.5s;
+					transition: all 0.5s;
 
-					&:hover{
+					&:hover {
 						color: ${green};
 					}
 				}
@@ -93,9 +93,9 @@ const MypageBlock = styled.div`
 					width: 100%;
 					text-align: center;
 					cursor: pointer;
-					transition : all 0.5s;
+					transition: all 0.5s;
 
-					&:hover{
+					&:hover {
 						color: ${green};
 					}
 				}
@@ -114,7 +114,7 @@ const MypageBlock = styled.div`
 					height: 100%;
 					background-color: #00800020;
 					font-size: 1.5em;
-                    color: ${green};
+					color: ${green};
 				}
 			}
 			/* QnA */
@@ -136,41 +136,71 @@ const MypageBlock = styled.div`
 					border-bottom: 1px solid #aaa;
 					transition: all 0.3s;
 					cursor: pointer;
-					&:hover{
+					&:hover {
 						background-color: #00ff9535;
 					}
 				}
 			}
 		}
 		.logout-btn-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			width: 100%;
 			height: 3rem;
 			button {
 				width: 80%;
 				height: 100%;
-                background: ${green};
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                font-size: 1.2em;
-                color: ${ivory};
-                cursor: pointer;
+				background: ${green};
+				border: 1px solid #ddd;
+				border-radius: 10px;
+				font-size: 1.2em;
+				color: ${ivory};
+				cursor: pointer;
 				transition: all 0.5s;
-				&:hover{
+				&:hover {
 					background: ${ivory};
 					color: ${green};
 				}
 			}
 		}
 	}
+
+	/* ======================== 반응형 460px ======================== */
+	@media screen and (max-width: 460px) {
+		padding-bottom: 0px;
+		.mypage-inner-box {
+			.user-info-box {
+				.user-info {
+					height: 3em;
+					span {
+						font-size: 1.8em;
+					}
+				}
+				/* 정보/주소/카드/후기 관리 */
+				.mypage-content-box {
+					.content-text {
+						font-size: 1em;
+					}
+				}
+				/* 배너 */
+				.appointment-banner {
+					height: 4rem;
+					border: 3px dashed ${green};
+					a {
+						font-size: 1.2em;
+					}
+				}
+			}
+		}
+	}
 `;
 
-const Mypage = ({ isLogin, setIsLogin, isAppointment, setIsAppointment }) => {
+const Mypage = ({ setIsLogin, setIsAppointment }) => {
 	setIsLogin(true);
+
 	return (
-		<MypageBlock>
+		<MypageBlock className='fade-in'>
 			<div className='mypage-inner-box'>
 				<div className='user-info-box'>
 					<div className='user-info'>

@@ -75,9 +75,9 @@ const HospitalListBlock = styled.div`
 	}
 `;
 
-const HospitalList = ({ hospitalData, setHospitalData, isAppointment, setIsAppointment }) => {
+const HospitalList = ({ hospitalData, setHospitalData, isAppointment, setIsAppointment ,isLogin}) => {
 	return (
-		<HospitalListBlock>
+		<HospitalListBlock className='fade-in'>
 			<h1>병원리스트</h1>
 			<ul className='hospital-list-box'>
 				{hospitalData &&
@@ -106,7 +106,7 @@ const HospitalList = ({ hospitalData, setHospitalData, isAppointment, setIsAppoi
 											localStorage.setItem('address', hospital.address);
 											localStorage.setItem('category', hospital.category);
 										}}
-										to={`/appointment/${hospital.id}`}>
+										to={isLogin == true ? `/appointment/${hospital.id}` : '/login'}>
 										예약하기
 									</NavLink>
 								</div>

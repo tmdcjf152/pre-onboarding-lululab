@@ -55,6 +55,39 @@ const ChoiceTreatmentBlock = styled.div`
 			}
 		}
 	}
+
+	    /* ======================== 반응형 460px ======================== */    
+@media screen and (max-width: 460px) {
+	.treatment-inner-box {
+		.treatment-text-box {
+			.treatment-text {
+				span {
+					font-size: 2em;
+				}
+			}
+		}
+		.treatment-btn-box {
+			.choice-btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 70%;
+				height: 2.5em;
+				margin-bottom: 2rem;
+				font-size: 1.2em;
+				color: #000;
+				border: 1px solid #000;
+				border-radius: 10px;
+				transition: all 0.5s;
+				cursor: pointer;
+				&:hover {
+					background: ${green};
+					color: ${ivory};
+				}
+			}
+		}
+	}
+    }
 `;
 
 const ChoiceTreatment = ({ isAppointment, setIsAppointment }) => {
@@ -79,11 +112,10 @@ const ChoiceTreatment = ({ isAppointment, setIsAppointment }) => {
 		}
 	});
 
-
 	return (
-		<ChoiceTreatmentBlock>
-			<Backbtn />
-			{numberUrl == getLocalId ? (
+		<ChoiceTreatmentBlock className='fade-in'>
+			<Backbtn setIsAppointment={setIsAppointment} />
+			{numberUrl == Number(getLocalId - 2) ? (
 				<OverlapPage />
 			) : blockUser == true ? (
 				<BlcokPage />

@@ -17,11 +17,30 @@ const BackbtnBlock = styled.div`
 	}
 `;
 
-const Backbtn = () => {
+const Backbtn = ({setIsAppointment }) => {
+	// 로컬스토리지 삭제 함수
+	const localReset = () => {
+		localStorage.removeItem('name');
+		localStorage.removeItem('year');
+		localStorage.removeItem('month');
+		localStorage.removeItem('date');
+		localStorage.removeItem('appointmentTime');
+		localStorage.removeItem('type');
+		localStorage.removeItem('open');
+		localStorage.removeItem('time');
+		localStorage.removeItem('address');
+		localStorage.removeItem('category');
+		localStorage.removeItem('hospitalId');
+	};
 	return (
-		<BackbtnBlock>
+		<BackbtnBlock className='fade-in'>
 			<div className='back-btn-box'>
-				<NavLink to='/home' className='back-btn'>
+				<NavLink
+					to='/home'
+					className='back-btn'
+					onClick={() => {
+						setIsAppointment(true)
+					}}>
 					<span className='hidden'>뒤로가기</span>
 					<BiArrowBack />
 				</NavLink>

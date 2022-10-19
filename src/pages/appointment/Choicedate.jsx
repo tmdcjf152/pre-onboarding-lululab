@@ -129,6 +129,81 @@ const ChoicedateBlock = styled.div`
 			}
 		}
 	}
+
+	    /* ======================== 반응형 460px ======================== */    
+@media screen and (max-width: 460px) {
+	.calendar-inner-box {
+		.hospital-info-box {
+			width: 90%;
+			height: 15em;
+			margin: 2rem 0rem;
+			span {
+			justify-content: center;
+				margin-bottom: 0.7rem;				display: flex;
+	
+				font-size: 1em;
+			}
+			.title {
+				font-size: 1.5em;
+			}
+		}
+		.title-box {
+			span {
+				font-size: 1.3em;
+
+			}
+		}
+		.calendar-box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 5rem;
+			.react-datepicker__input-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 25rem;
+				height: 3em;
+				input[type='text'] {
+					width: 80%;
+					font-size: 1.2em;
+				}
+			}
+		}
+		.time-box {
+			width:100%;
+			.time-btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 80px;
+				height: 4rem;
+				padding: 0rem 0rem;
+				input[type='radio'] + span {
+					padding: 15px 15px;
+				}
+
+			}
+		}
+		.next-btn-box {
+			height: 2.5em;
+			.next-btn {
+				border-radius: 10px;
+				background: ${green};
+				font-size: 1.5em;
+				color: ${ivory};
+				cursor: pointer;
+				&:disabled {
+					background: #ddd;
+				}
+				a {
+					color: #fff;
+				}
+			}
+		}
+	}
+    }
 `;
 
 const Choicedate = ({hospitalData}) => {
@@ -160,7 +235,7 @@ const Choicedate = ({hospitalData}) => {
 		<>
 			<Backbtn />
 			<ChoicedateBlock>
-				<div className='calendar-inner-box'>
+				<div className='calendar-inner-box fade-in'>
 					<div className='hospital-info-box'>
 						<li className='hospital-box'>
 							<div className='title'>

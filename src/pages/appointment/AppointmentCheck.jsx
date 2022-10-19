@@ -82,6 +82,62 @@ const AppointmentCheckBlock = styled.div`
 			color: #fff;
 		}
 	}
+
+	    /* ======================== 반응형 460px ======================== */    
+@media screen and (max-width: 460px) {
+	.logo-box {
+		img {
+			height: 10em;
+			padding-top: 50px;
+		}
+	}
+	.text-box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		height: 20rem;
+		margin-top: 1rem;
+		.check-date {
+			margin-bottom: 0.5rem;
+			font-size: 1.5em;
+		}
+		.warning {
+
+			width: 80%;
+
+			font-size: 0.7em;		
+		}
+		.warning-icon {
+
+			font-size: 1em;
+
+		}
+
+	}
+	.next-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 2rem;
+		padding: 0rem 2rem;
+		margin-top: 1rem;
+		a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			border: 1px solid #ddd;
+			border-radius: 20px;
+			background: ${green};
+			font-size: 1.5em;
+			color: #fff;
+		}
+	}
+    }
 `;
 
 const AppointmentCheck = ({ isAppointment, setIsAppointment }) => {
@@ -92,7 +148,7 @@ const AppointmentCheck = ({ isAppointment, setIsAppointment }) => {
 	return (
 		<>
 			<AppointmentCheckBlock>
-				<div className='logo-box'>
+				<div className='logo-box fade-in'>
 					<img src={logo} alt='룰루랩로고' />
 				</div>
 				<div className='text-box'>

@@ -68,8 +68,8 @@ const BlockPageBlock = styled.div`
 const BlockPage = () => {
   return (
     <BlockPageBlock>
-      	<div className='block-inner-box'>
-				<div className='block-img-box'>
+      	<div className='block-inner-box fade-in'>
+				<div className='block-img-box '>
 					<AiOutlineWarning />
 				</div>
 				<div className='block-text-box'>
