@@ -170,7 +170,7 @@ const MainPageBlock = styled.div`
 					font-size: 1em;
 					color: #aaa;
 					transition: all 0.5s;
-					&:hover{
+					&:hover {
 						color: ${green};
 					}
 				}
@@ -280,7 +280,7 @@ const MainPage = ({ hospitalData, isLogin, isAppointment, setIsAppointment }) =>
 			<div className='main-inner-box'>
 				<div className='main-header-box center'>
 					<span>빠른 진료를 원하시나요?</span>
-					<NavLink to={isLogin == true ? '/login' : '/hospitallist'}>예약 시작하기</NavLink>
+					<NavLink to={isLogin == true ? '/hospitallist' : '/login'}>예약 시작하기</NavLink>
 				</div>
 				<div className='main-appointment-box center'>
 					<span className='appointment-title'>예약현황</span>
@@ -348,7 +348,7 @@ const MainPage = ({ hospitalData, isLogin, isAppointment, setIsAppointment }) =>
 							{hospitalData &&
 								hospitalData.map((hospital, index) => {
 									return (
-										<SwiperSlide>
+										<SwiperSlide key={hospital.id}>
 											<li className='hospital-box'>
 												<div className='title'>
 													<span className='hospital-name'>{hospital.name}</span>

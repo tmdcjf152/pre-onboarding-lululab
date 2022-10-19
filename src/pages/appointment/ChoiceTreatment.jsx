@@ -58,27 +58,26 @@ const ChoiceTreatmentBlock = styled.div`
 `;
 
 const ChoiceTreatment = ({ isAppointment, setIsAppointment }) => {
-	const [block, setBlock] = useState([]);
-	const [blockUser, setBlockUser]=useState(false)
+	const [block, setBlock] = useState('');
+	const [blockUser, setBlockUser] = useState(false);
 	const id = useParams();
 	const getLocalId = localStorage.getItem('hospitalId');
-	const numberUrl = Number(id.id)+1;
+	const numberUrl = Number(id.id) - 1;
 
 	useEffect(() => {
 		fetch('http://127.0.0.1:4000/data/hospital.json')
 			.then((res) => res.json())
 			.then((data) => {
-				setBlock(data.data[numberUrl]);
+				setBlock(data.data[numberUrl].block);
 			});
 	}, []);
-	
-	useEffect(()=>{
-		if(block.block === true){
-			setBlockUser(true)
+
+	useEffect(() => {
+		if (block === true) {
+			setBlockUser(true);
 			console.log(blockUser);
 		}
-	})
-
+	});
 
 
 	return (
@@ -128,7 +127,7 @@ const ChoiceTreatment = ({ isAppointment, setIsAppointment }) => {
 									건강검진
 								</span>
 							</NavLink>
-							<dNavLink
+							<NavLink
 								onClick={() => {
 									localStorage.setItem('type', '기타상담');
 								}}
@@ -138,7 +137,7 @@ const ChoiceTreatment = ({ isAppointment, setIsAppointment }) => {
 									<AiOutlinePlus />
 									기타
 								</span>
-							</dNavLink>
+							</NavLink>
 						</div>
 					</div>
 				</div>
