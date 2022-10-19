@@ -70,7 +70,7 @@ npm run dev
 <br/>
 
 2. 브라우저에서 
-[배포주소](https://tmdcjf152.github.io/pre-onboarding-3team-1nd/)로 접속해주시면 됩니다.
+[배포주소](https://tmdcjf152.github.io/pre-onboarding-lululab/#/)로 접속해주시면 됩니다.
 
    <br/>
    <br/>
